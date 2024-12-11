@@ -12,14 +12,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class RegistrationLogin {
 
 	public static void main(String[] args) throws InterruptedException {
-		// Overiť proces registrácie
+		// Overi proces registrácie
 		
 //		Prejdi na registračný formulár.
-//		Vyplň všetky povinné údaje (meno, e-mail, heslo, atď.).
-//		Klikni na tlačidlo "Registrovať".
-//		Over, že sa používateľ dostane na uvítaciu stránku alebo dostane potvrdzujúci e-mail.
+//		Vyplni všetky povinné údaje (meno, e-mail, heslo, atď.).
+//		Klikne na tlačidlo "Registrovať".
+//		Overi, že sa používateľ dostane na uvítaciu stránku alebo dostane potvrdzujúci e-mail.
 		
-		// Nastav cestu k ChromeDriver
+		// Nastavi cestu k ChromeDriver
 		System.setProperty("webdriver.chrome.chromedriver",
 				"C:\\Users\\vasko\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 
@@ -27,7 +27,7 @@ public class RegistrationLogin {
 		WebDriver driver = new ChromeDriver();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5)); // Čaká max 10 sekúnd na prvky
 
-		// 1. Otvor stránku Martinus.sk
+		// 1. Otvori stránku Martinus.sk
 		driver.get("https://www.martinus.sk/");
 		
 		driver.findElement(By.id("CybotCookiebotDialogBodyButtonDecline")).click();
