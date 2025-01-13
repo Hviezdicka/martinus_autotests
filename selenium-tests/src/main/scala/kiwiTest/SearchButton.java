@@ -47,14 +47,11 @@ public class SearchButton {
 
 		try {
 			driver.get("https://www.kiwi.com/");
-
+			// search for departure city
 			driver.findElement(By.cssSelector(".orbit-button-primitive-content")).click();
-			WebElement firstResult = wait.until(ExpectedConditions
-					.elementToBeClickable(By.cssSelector("p.orbit-text.font-bold.text-white-foreground")));
-			firstResult.click();
-
-			WebElement firstPlace = driver.findElement(By.cssSelector("input[data-test=\"SearchField-input\"]"));
-			firstPlace.sendKeys("Bratislava");
+			wait.until(ExpectedConditions
+					.elementToBeClickable(By.cssSelector("p.orbit-text.font-bold.text-white-foreground"))).click();
+			driver.findElement(By.cssSelector("input[data-test=\"SearchField-input\"]")).sendKeys("Bratislava");
 
 			Thread.sleep(2000);
 
@@ -70,9 +67,10 @@ public class SearchButton {
 
 			Thread.sleep(3000);
 
-			WebElement secondPlace = wait.until(ExpectedConditions
-					.visibilityOfElementLocated(By.cssSelector("input[placeholder=\"City, airport or place\"]")));
-			secondPlace.sendKeys("Bangkok");
+			// search for the arrival city
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(By.cssSelector("input[placeholder=\"City, airport or place\"]")))
+					.sendKeys("Bangkok");
 
 			Thread.sleep(2000);
 
@@ -85,11 +83,12 @@ public class SearchButton {
 					break;
 				}
 			}
+			
 			// click on departure date
 			wait.until(ExpectedConditions.elementToBeClickable(By.name("search-outboundDate"))).click();
 
 			Thread.sleep(3000);
-
+			//methods for searching the right day
 			clickOnMonthAndDay("March 2025", "4", driver, wait);
 			clickOnMonthAndDay("April 2025", "3", driver, wait);
 
